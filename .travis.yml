@@ -5,11 +5,11 @@ node_js: 6.10
 env:
   global:
 
-    - AWS_ACCESS_KEY_ID=AKIAIY72BYOTX7AYCKAA
+    - AWS_ACCESS_KEY_ID=AKIAID4ZQD3CFEHFJCKA
     - AWS_DEFAULT_REGION=ap-southeast-2
 
-    - LAMBDA_NAME=snsToSlack
-    - LAMBDA_DESCRIPTION="Sends SNS notifications to a Slack channel."
+    - LAMBDA_NAME=awsBillingToSlack
+    - LAMBDA_DESCRIPTION="Sends Billing SNS notifications to a Slack channel."
     - LAMBDA_TIMEOUT=30
     - LAMBDA_ROLE=arn:aws:iam::300761597318:role/genericLambdaRole
 
@@ -18,7 +18,7 @@ env:
     - LAMBDA_HANDLER=handler
 
     # AWS_SECRET_ACCESS_KEY
-    - secure: TvHT7cop4qTnzcOxMj0lislraASMouWgeg/ahRpdkpmo9JnWbuukzRv6OaW0MCewhpOnh/IdbLIL5amHUqI6zd8vzBXlKe2d4dggNJcgwe6M+KXjSY7kl8laJ6BtVlzYiNWyT5+HkqqgzHd/PwT4ZGGIp29GEOq2/kX9S1OVcAdQyB9v6LCRy8mcSee8lu7YiUtpUx+pymfQIVyF6MY2uhXdOV+/2MiXFaeAZDSXrEtyFV7+FIcojV1/6XpfLEIo2C+1LU3iRUjkw8FMQcxX/A+dkCo59oe1ClmQM6tvrsIW9bNl029mWgUVjG3Hr6gtcUXnb8efGIZU96sMPfdZSN9HwrmON7uJPGF2ddG4im4JWtsL5DEy4HebXfrZY4CI2ds7L7dR5otkuCCSjnNY4p7W/VzLSQkTt7C2eGK1RPJGdakR7RQTYShI6/lebua95PiieKQpj3OXHVFQ45XGSJYEnPJcCtpGmRe3oZteKizDhwbt6ChbA6uqYiCsEgprNtymEcAZUpXoGxbA3aHPBsfFPU7bvu4Ze4cvvgClbdlChBxLbos6va7RMS6rMxIYJopohZ1jO/9KRM6P1mr28eytNdkYc4rTFJkSHV/v8aYHR/ey+ehnPxmQ0afsW03oiH3KSqUV1yUcuHlEYvMVvctIUdDmP9wTrTQIR0KFjWo=
+    - secure: "gQB/nbB97wfRi8K2vdC9JBVg1uTYF3CQoqGtbeVzpvn85kqdxulrilxQHC2v4QLxAOtkF27dlLO/BMVbcSGkqe0g2bDQts2Y0JZ/lwQ/OHf4HrkpDvwHFz2tmYusAoL7HWJRCVz3xuCl4Klw3QHRtlWlidlZnggfngwrNzuJ2SydMWeNyxK1uriFiGaZfQjU26aTVsY63nc++e54dnCwbSs5nCbc4DM3NkuiR+rFMY1WRRztJPUgevHWVm/R4OfmelEIzLxsszbMGW5HltrGHNXtIM7j4cB5t+ZULHmzti4j6j8dVCFau29cXLJohcJEnkYXj4Y8g9oXZF/wwhWoMVC2DrihYqnW/oKP2eJ9DgWXWZcOqm5eC5GnW2ADrfNAZepYl4PwXbkM6peb3fbsLYrgb2Mr/y0jF2RH35/bC4/lRJ6sQZ+7lf3PoPf16wEcgG5D2WbncDb3uqjBvB21eS7Q2fQYSdQKMKZ/XDgwvxzmYFUUmh11AebCsx1JOOxM5YEQHgEkLw5KVv5f6GVuqacilTCq/PJzlkUCXn/3GT5WL7rgXfxe2bHT9avxrsA/4SKp353+hn7yP2sXtGtGBW9ll8DQ2nKPr9kfLG+RlIZnqA1zM3qxrFx/QJu6csjfu126MSy72KMUFUpLy8r2XuXDbFvwMbwiPzDNNF3qwDY="
 
 cache:
   yarn: true
@@ -36,7 +36,7 @@ before_deploy:
 deploy:
 
   - on:
-      branch: chromatix
+      branch: aws-billing
     publish: true
 
     provider: lambda
