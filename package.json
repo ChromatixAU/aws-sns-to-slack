@@ -1,6 +1,6 @@
 {
   "name": "sns-to-slack",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "AWS Lambda function to send SNS notifications to a Slack channel.",
   "homepage": "https://github.com/tdmalone/sns-to-slack#readme",
   "repository": "git+https://github.com/tdmalone/sns-to-slack.git",
@@ -18,7 +18,8 @@
     "test-form-data": "yarn _test \"$(cat tests/fixtures/form-data.json)\"",
     "test-generic-event": "yarn _test \"$(cat tests/fixtures/generic-event.json)\"",
     "_test": "docker run --rm -e CI -e SLACK_HOOK -v \"${PWD}\":/var/task lambci/lambda:nodejs6.10 index.handler",
-    "unit-tests": "jest --verbose --coverage"
+    "unit-tests": "jest --verbose --coverage",
+    "package": "rm -rf node_modules && yarn --prod && rm -f function.zip && zip -r function.zip index.js package.json node_modules filters && yarn"
   },
   "keywords": [
     "aws",
