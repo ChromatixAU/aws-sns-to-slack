@@ -2,5 +2,5 @@
 /docs/
 /node_modules/
 *.log
-package-lock.json
 function.zip
+yarn.lock
